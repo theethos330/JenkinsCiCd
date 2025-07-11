@@ -8,8 +8,8 @@ pipeline {
   stages {
     stage('Checkout') {
       steps {
-        checkout scm
-        //git branch: 'main', url: 'https://github.com/tj330/JenkinsCiCdPipeline.git'
+        // checkout scm
+        git branch: 'main', url: 'https://github.com/tj330/JenkinsCiCdPipeline.git'
       }
     }
     stage('Build and Test') {
