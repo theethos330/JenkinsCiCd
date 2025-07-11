@@ -1,7 +1,7 @@
 pipeline {
   agent {
     docker {
-      image 'tj330/maven-docker-agent:java17'
+      image 'tj330/maven-docker-agent:jenkins'
       args '--user root -v /var/run/docker.sock:/var/run/docker.sock'
     }
   }
