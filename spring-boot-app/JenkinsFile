@@ -26,18 +26,14 @@ pipeline {
         }
         steps {
             withCredentials([string(credentialsId: 'github', variable: 'GITHUB_TOKEN')]) {
-                sh '''
-                    cd $WORKSPACE
-                    pwd
-                    ls -la
-                    git config user.email "titusjamesranny@gmail.com"
-                    git config user.name "tj330"
-                    BUILD_NUMBER=${BUILD_NUMBER}
-                    sed -i "s/replaceImageTag/${BUILD_NUMBER}/g" JenkinsCiCdPipeline/spring-boot-app-manifests/deployment.yml
-                    git add JenkinsCiCdPipeline/spring-boot-app-manifests/deployment.yml
-                    git commit -m "Update deployment image to version ${BUILD_NUMBER}"
-                    git push https://${GITHUB_TOKEN}@github.com/${GIT_USER_NAME}/${GIT_REPO_NAME} HEAD:main
-                '''
+                sh 'ls -la'
+                    sh 'git config user.email "titusjamesranny@gmail.com"'
+                    sh 'git config user.name "tj330"'
+                    sh 'BUILD_NUMBER=${BUILD_NUMBER}'
+                    sh 'sed -i "s/replaceImageTag/${BUILD_NUMBER}/g" JenkinsCiCdPipeline/spring-boot-app-manifests/deployment.yml'
+                    sh 'git add JenkinsCiCdPipeline/spring-boot-app-manifests/deployment.yml'
+                    sh 'git commit -m "Update deployment image to version ${BUILD_NUMBER}"'
+                    sh 'git push https://${GITHUB_TOKEN}@github.com/${GIT_USER_NAME}/${GIT_REPO_NAME} HEAD:main'
             }
         }
     }
