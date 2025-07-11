@@ -20,7 +20,8 @@ pipeline {
       }
     }
     stage('Update Deployment File') {
-        sh '''
+        steps {
+          sh '''
                     whoami
                     git config user.email "titusjamesranny@gmail.com"
                     git config user.name "tj330"
