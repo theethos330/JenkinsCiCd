@@ -22,7 +22,7 @@ pipeline {
     stage('Update Deployment File') {
         steps {
           sh '''
-                whoami
+                git config --global --add safe.directory "$PWD"
                 ls -la
                 git config user.email "titusjamesranny@gmail.com"
                 git config user.name "tj330"
