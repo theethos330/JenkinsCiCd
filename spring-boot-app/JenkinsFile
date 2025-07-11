@@ -27,6 +27,7 @@ pipeline {
         steps {
             withCredentials([string(credentialsId: 'github', variable: 'GITHUB_TOKEN')]) {
                 sh '''
+                    cd $WORKSPACE
                     pwd
                     ls -la
                     git config user.email "titusjamesranny@gmail.com"
