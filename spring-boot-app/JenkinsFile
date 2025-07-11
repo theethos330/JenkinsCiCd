@@ -21,6 +21,7 @@ pipeline {
     }
     stage('Update Deployment File') {
         sh '''
+                    whoami
                     git config user.email "titusjamesranny@gmail.com"
                     git config user.name "tj330"
                     BUILD_NUMBER=${BUILD_NUMBER}
